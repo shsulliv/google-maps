@@ -1,4 +1,4 @@
-window.calculateRoute = () => {
+const calculateRoute = ({ travelMode }) => {
 
   const mapOptions = {
     zoom: 10,
@@ -17,7 +17,7 @@ window.calculateRoute = () => {
   const directionsRequest = {
     origin: start,
     destination: end,
-    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    travelMode: google.maps.DirectionsTravelMode[travelMode],
     unitSystem: google.maps.UnitSystem.METRIC
   };
 
@@ -36,3 +36,12 @@ window.calculateRoute = () => {
     }
   );
 }
+
+calculateRoute({ travelMode: 'WALKING' });
+
+const controls = document.getElementById('controls');
+
+controls.addEventListener('click', (event) => {
+  event.preventDefault();
+  calculateRoute({travelMode: event.target.value});
+});
