@@ -1,3 +1,7 @@
+// Tutorials drawn from:
+// https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+// https://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/
+
 const calculateRoute = ({ travelMode }) => {
 
   const mapOptions = {
@@ -6,8 +10,8 @@ const calculateRoute = ({ travelMode }) => {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  const mapObject = new google.maps.Map(document.getElementById("map"),
-                                        mapOptions);
+  const mapObject =
+    new google.maps.Map(document.getElementById('map'), mapOptions);
 
   const directionsService = new google.maps.DirectionsService();
 
@@ -23,8 +27,7 @@ const calculateRoute = ({ travelMode }) => {
 
   directionsService.route(
     directionsRequest,
-    function(response, status)
-    {
+    (response, status) => {
       if (status == google.maps.DirectionsStatus.OK) {
         new google.maps.DirectionsRenderer({
           map: mapObject,
@@ -32,12 +35,10 @@ const calculateRoute = ({ travelMode }) => {
         });
       }
       else
-        console.log("Unable to complete your request");
+        console.log('Unable to complete your request');
     }
   );
-}
-
-calculateRoute({ travelMode: 'WALKING' });
+};
 
 const controls = document.getElementById('controls');
 
@@ -45,3 +46,5 @@ controls.addEventListener('click', (event) => {
   event.preventDefault();
   calculateRoute({travelMode: event.target.value});
 });
+
+calculateRoute({ travelMode: 'DRIVING' });
