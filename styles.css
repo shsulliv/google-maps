@@ -4,15 +4,28 @@ html, body {
   padding: 0;
 }
 
+#title {
+  position: absolute;
+  z-index: 1000;
+  background-color: rgb(29, 76, 153);
+  color: #FFF;
+  padding: .1em .2em;
+  left: .4em;
+  margin-top: .4em;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),
+              0 1px 7px 0 rgba(0,0,0,0.12),
+              0 3px 1px -1px rgba(0,0,0,0.2);
+}
+
 #controls {
   position: absolute;
-  background-color: red;
   z-index: 1000;
+  top: 2em;
+  right: 2em;
 }
 
 #controls > button {
-
-
+  background-color: rgb(29, 76, 153);
 }
 
 #map {
