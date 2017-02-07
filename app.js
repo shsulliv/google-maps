@@ -174,6 +174,9 @@ const calculateRoute = ({ travelMode }) => {
     styles: nauticalStyle
   };
 
+  const mapObject =
+    new google.maps.Map(document.getElementById('map'), mapOptions);
+
   // Try HTML5 geolocation.
    if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition((position) => {
@@ -182,41 +185,37 @@ const calculateRoute = ({ travelMode }) => {
          lng: position.coords.longitude
        };
        mapObject.setCenter(pos);
+
+       const start = pos;
+       const end = {lat: 51.5332408, lng: -0.1281903}; // Google London, King's Cross
+
+       // Accessing the Directions API
+       const directionsService = new google.maps.DirectionsService();
+
+       const directionsRequest = {
+         origin: start,
+         destination: end,
+         travelMode: google.maps.DirectionsTravelMode[travelMode],
+         unitSystem: google.maps.UnitSystem.METRIC
+       };
+
+       directionsService.route(
+         directionsRequest,
+         (response, status) => {
+           if (status == google.maps.DirectionsStatus.OK) {
+             new google.maps.DirectionsRenderer({
+               map: mapObject,
+               directions: response
+             });
+           }
+           else
+             console.log('Unable to complete your request');
+         }
+       );
      });
    } else {
      console.log('No support for geolocation');
    }
-
-  const mapObject =
-    new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  // Accessing the Directions API
-  const directionsService = new google.maps.DirectionsService();
-
-  // const start = {lat: 51.5138453, lng: -0.1005393}; // St. Paul's Cathedral
-  const start = mapObject.getCenter();
-  const end = {lat: 51.5332408, lng: -0.1281903}; // Google London, King's Cross
-
-  const directionsRequest = {
-    origin: start,
-    destination: end,
-    travelMode: google.maps.DirectionsTravelMode[travelMode],
-    unitSystem: google.maps.UnitSystem.METRIC
-  };
-
-  directionsService.route(
-    directionsRequest,
-    (response, status) => {
-      if (status == google.maps.DirectionsStatus.OK) {
-        new google.maps.DirectionsRenderer({
-          map: mapObject,
-          directions: response
-        });
-      }
-      else
-        console.log('Unable to complete your request');
-    }
-  );
 };
 
 // Setting the buttons to change mode of transportation
