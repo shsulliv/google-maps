@@ -22,7 +22,7 @@ module.exports = function createRouter(map) {
   function renderRoute(origin, destination, travelMode) {
     const request = createRequest(origin, destination, travelMode);
 
-    directionsService.renderRoute(request, (directions, status) => {
+    directionsService.route(request, (directions, status) => {
       if (status == google.maps.DirectionsStatus.OK) {
         renderer.setDirections(directions);
       } else {
