@@ -89,18 +89,18 @@ const nauticalStyle =
             }
         ]
     },
-    {
-        "featureType": "road.highway",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "saturation": "23"
-            },
-            {
-                "color": "#d42039"
-            }
-        ]
-    },
+    // {
+    //     "featureType": "road.highway",
+    //     "elementType": "geometry.fill",
+    //     "stylers": [
+    //         {
+    //             "saturation": "23"
+    //         },
+    //         {
+    //             "color": "#d42039"
+    //         }
+    //     ]
+    // },
     {
         "featureType": "road.highway",
         "elementType": "labels.text.fill",
@@ -177,7 +177,7 @@ const calculateRoute = ({ travelMode }) => {
   const mapObject =
     new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  // Try HTML5 geolocation.
+  // HTML5 geolocation
    if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition((position) => {
        var pos = {
@@ -188,6 +188,9 @@ const calculateRoute = ({ travelMode }) => {
 
        const start = pos;
        const end = {lat: 51.5332408, lng: -0.1281903}; // Google London, King's Cross
+
+       const startMarker = new google.maps.Marker({ position: start, map: mapObject, icon: 'gps.svg' });
+       const stopMarker = new google.maps.Marker({ position: end, map: mapObject, icon: 'gps.svg' });
 
        // Accessing the Directions API
        const directionsService = new google.maps.DirectionsService();
@@ -205,7 +208,12 @@ const calculateRoute = ({ travelMode }) => {
            if (status == google.maps.DirectionsStatus.OK) {
              new google.maps.DirectionsRenderer({
                map: mapObject,
-               directions: response
+               directions: response,
+               suppressMarkers: true,
+               polylineOptions: {
+                 strokeColor: '#d42039',
+                 strokeWeight: 5
+              }
              });
            }
            else
@@ -223,7 +231,7 @@ const controls = document.getElementById('controls');
 
 controls.addEventListener('click', (event) => {
   event.preventDefault();
-  calculateRoute({travelMode: event.target.value});
+  calculateRoute({travelMode: event.target.parentNode.value});
 });
 
 // Setting an initialized route to 'Driving' on page load

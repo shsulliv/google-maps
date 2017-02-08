@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1 id="title">
-      Visit Google London
-    </h1>
+    <h2 id="title">Visit Google London</h2>
 
     <div id="controls">
-      <button type="button" value="DRIVING" class="btn btn-large waves-effect waves-light active">Drive</button>
-      <button type="button" value="WALKING" class="btn btn-large waves-effect waves-light">Walk</button>
-      <button type="button" value="TRANSIT" class="btn btn-large waves-effect waves-light">Transit</button>
+      <button type="button" value="DRIVING" class="btn btn-floating btn-large waves-effect waves-light active">
+        <i class="material-icons">directions_car</i>
+      </button>
+      <button type="button" value="WALKING" class="btn btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">directions_walk</i>
+      </button>
+      <button type="button" value="TRANSIT" class="btn btn-floating btn-large waves-effect waves-light">
+        <i class="material-icons">directions_transit</i>
+      </button>
     </div>
 
     <div id="map"></div>
