@@ -1,3 +1,5 @@
+// Nautical theme for map
+
 module.exports = [
   {
     featureType: 'administrative',

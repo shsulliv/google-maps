@@ -1,3 +1,5 @@
+// Make the map
+
 const { MAP_OPTIONS } = require('./constants');
 
 const makeMap = (id = 'map', options = MAP_OPTIONS) =>

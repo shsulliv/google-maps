@@ -1,4 +1,5 @@
 // Accessing the Directions API
+
 const directionsService = new google.maps.DirectionsService();
 
 const createRequest = (origin, destination, travelMode) => ({

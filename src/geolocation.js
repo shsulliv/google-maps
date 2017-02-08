@@ -1,6 +1,4 @@
-const { coordinates, MAP_OPTIONS } = require('./constants');
-const { makeMap, makeMarker } = require('./map');
-const renderRoute = require('./route');
+// Get the user's current location
 
 module.exports = cb => {
   // HTML5 geolocation
