@@ -189,8 +189,8 @@ const calculateRoute = ({ travelMode }) => {
        const start = pos;
        const end = {lat: 51.5332408, lng: -0.1281903}; // Google London, King's Cross
 
-       const startMarker = new google.maps.Marker({ position: start, map: mapObject, icon: 'gps.svg' });
-       const stopMarker = new google.maps.Marker({ position: end, map: mapObject, icon: 'gps.svg' });
+       const startMarker = new google.maps.Marker({ position: start, map: mapObject, icon: 'img/map-pin_navy.svg' });
+       const endMarker = new google.maps.Marker({ position: end, map: mapObject, icon: 'img/map-pin_green.svg' });
 
        // Accessing the Directions API
        const directionsService = new google.maps.DirectionsService();
