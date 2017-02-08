@@ -1,0 +1,23 @@
+{
+  "name": "google-maps",
+  "version": "1.0.0",
+  "description": "Simple map app that calculates a trip to Google London",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo --live --ssl src/app.js:static/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shsulliv/google-maps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shsulliv/google-maps/issues"
+  },
+  "homepage": "https://github.com/shsulliv/google-maps#readme",
+  "devDependencies": {
+    "budo": "^9.4.7"
+  }
+}
