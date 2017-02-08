@@ -19,10 +19,10 @@ module.exports = function createRouter(map) {
     }
   });
 
-  function route(origin, destination, travelMode) {
+  function renderRoute(origin, destination, travelMode) {
     const request = createRequest(origin, destination, travelMode);
 
-    directionsService.route(request, (directions, status) => {
+    directionsService.renderRoute(request, (directions, status) => {
       if (status == google.maps.DirectionsStatus.OK) {
         renderer.setDirections(directions);
       } else {
@@ -31,5 +31,5 @@ module.exports = function createRouter(map) {
     });
   }
 
-  return { route };
+  return { renderRoute };
 };
