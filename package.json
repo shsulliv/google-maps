@@ -9,7 +9,8 @@
     "browserify": "browserify src/app.js -o dist/assets/bundle.js",
     "html": "cp index.html dist/",
     "assets": "cp -R assets/* dist/assets",
-    "build": "rm -rf dist && mkdir -p dist/assets && npm run browserify && npm run html && npm run assets"
+    "build": "rm -rf dist && mkdir -p dist/assets && npm run browserify && npm run html && npm run assets",
+    "publish": "npm run build && surge -p dist -d google-maps.surge.sh"
   },
   "repository": {
     "type": "git",

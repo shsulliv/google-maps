@@ -3,6 +3,7 @@
 // https://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/
 // Nautical styled map from: https://snazzymaps.com/style/92258/nautical-map
 // Marker icons made by http://www.flaticon.com/authors/scott-de-jonge
+if (location.protocol !== 'https:') location.protocol = 'https:';
 
 const { coordinates, MAP_OPTIONS } = require('./constants');
 const { makeMap, renderMarker } = require('./map');
