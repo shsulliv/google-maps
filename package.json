@@ -4,7 +4,12 @@
   "description": "Simple map app that calculates a trip to Google London",
   "main": "index.js",
   "scripts": {
-    "start": "budo --live --ssl src/app.js:static/bundle.js"
+    "start": "budo --live --ssl src/app.js:assets/bundle.js",
+    "prettier": "prettier --write --single-quote 'src/**/*.js'",
+    "browserify": "browserify src/app.js -o dist/assets/bundle.js",
+    "html": "cp index.html dist/",
+    "assets": "cp -R assets/* dist/assets",
+    "build": "rm -rf dist && mkdir -p dist/assets && npm run browserify && npm run html && npm run assets"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,8 @@
   },
   "homepage": "https://github.com/shsulliv/google-maps#readme",
   "devDependencies": {
-    "budo": "^9.4.7"
+    "browserify": "^14.0.0",
+    "budo": "^9.4.7",
+    "prettier": "^0.16.0"
   }
 }

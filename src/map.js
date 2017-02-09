@@ -8,7 +8,7 @@ const makeMap = (id = 'map', options = MAP_OPTIONS) =>
 const renderMarker = (position, color, map) => new google.maps.Marker({
   position,
   map,
-  icon: `img/map-pin_${color}.svg`
+  icon: `assets/img/map-pin_${color}.svg`
 });
 
 module.exports = { makeMap, renderMarker };
