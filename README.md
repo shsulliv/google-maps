@@ -32,6 +32,13 @@ location to another fixed location (which could be anywhere: your favorite resta
 * Allow the user to switch between walking route, driving route, and public transportation
 * Bonus points for making it responsive and work well on small screens (phone, tablets) and with touch interactions
 
+## Resources Used
+Tutorials drawn from:
+* [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
+* [Site Point Tutorial](https://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/)
+Nautical Map Styling from:
+* [Snazzy Maps](https://snazzymaps.com/style/92258/nautical-map)
+
 [nvm]: https://github.com/creationix/nvm
 [npm]: https://npmjs.com
 [nodejs]: https://nodejs.org/en/

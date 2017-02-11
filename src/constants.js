@@ -10,6 +10,7 @@ const MAP_OPTIONS = {
   center: coordinates.MAP_CENTER,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   mapTypeControl: false,
+  fullscreenControl: false,
   styles
 };
 
