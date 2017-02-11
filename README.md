@@ -36,6 +36,7 @@ location to another fixed location (which could be anywhere: your favorite resta
 Tutorials drawn from:
 * [Google Maps API Docs](https://developers.google.com/maps/documentation/javascript/adding-a-google-map)
 * [Site Point Tutorial](https://www.sitepoint.com/find-a-route-using-the-geolocation-and-the-google-maps-api/)
+
 Nautical Map Styling from:
 * [Snazzy Maps](https://snazzymaps.com/style/92258/nautical-map)
 
