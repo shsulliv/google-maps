@@ -1,5 +1,7 @@
 // Accessing the Directions API
 
+const renderError = require('./error');
+
 const directionsService = new google.maps.DirectionsService();
 
 const createRequest = (origin, destination, travelMode) => ({
@@ -26,7 +28,7 @@ module.exports = function createRouter(map) {
       if (status == google.maps.DirectionsStatus.OK) {
         renderer.setDirections(directions);
       } else {
-        console.log('Unable to complete your request');
+        renderError();
       }
     });
   }
