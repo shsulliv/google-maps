@@ -1,6 +1,6 @@
 if (location.protocol !== 'https:') location.protocol = 'https:';
 
-const { coordinates, MAP_OPTIONS } = require('./constants');
+const { coordinates } = require('./constants');
 const { makeMap, renderMarker } = require('./map');
 const geolocate = require('./geolocation');
 const createRouter = require('./route');
